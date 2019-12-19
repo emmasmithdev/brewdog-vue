@@ -38,6 +38,12 @@
           this.favouriteBeers.push(beer)
         }
       })
+      eventBus.$on("beer-removed", (beer) => {
+        const index = this.favouriteBeers.indexOf(beer)
+        if (index > -1){
+          this.favouriteBeers.splice(index, 1);
+        }
+      })
      },
    components: {
      'beers-list': BeersList,

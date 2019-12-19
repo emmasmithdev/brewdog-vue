@@ -3,6 +3,7 @@
     <h3>{{beer.name}}</h3>
     <p>{{beer.tagline}}</p>
     <button v-on:click="addToFavourites">Add to Favourites</button>
+    <button v-on:click="removeFromFavourites">Remove from Favourites</button>
     <p>First Brewed: {{beer.first_brewed}}</p>
     <p>Description: {{beer.description}}</p>
     <h4>Food Pairings:</h4>
@@ -27,6 +28,11 @@ export default {
     addToFavourites: function(){
       this.favouriteBeer = this.beer;
       eventBus.$emit("beer-favourited", this.favouriteBeer)
+      this.favouriteBeer = null;
+    },
+    removeFromFavourites: function(){
+      this.favouriteBeer = this.beer;
+      eventBus.$emit("beer-removed", this.favouriteBeer)
       this.favouriteBeer = null;
     }
   }
