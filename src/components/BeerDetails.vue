@@ -9,6 +9,15 @@
     <h4>Food Pairings:</h4>
     <p v-for="(food, index) in beer.food_pairing" :food="food"
     :key="index" :value="food">{{food}}</p>
+    <h4>Ingredients:</h4>
+    <h5>Malt:</h5>
+    <p v-for="(ingredient, index) in beer.ingredients.malt" :malt="malt"
+    :key="index" :value="malt">{{ingredient.name}}</p>
+    <h5>Hops:</h5>
+    <p v-for="(ingredient, index) in beer.ingredients.hops" :hops="hops"
+    :key="index" :value="hops">{{ingredient.name}}</p>
+    <h5>Yeast:</h5>
+    <p>{{beer.ingredients.yeast}}</p>
     <img :src="beer.image_url" />
   </div>
 </template>
